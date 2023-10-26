@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
-@RequestMapping("/menu")
+@Controller  //MenuController로 빈등록
+@RequestMapping("/menu") //컨트롤러내부에서 url시작은
 public class MenuController {
 
     private final MenuService menuService;
