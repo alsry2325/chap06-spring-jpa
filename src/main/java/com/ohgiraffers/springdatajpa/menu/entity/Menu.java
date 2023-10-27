@@ -6,11 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-
+import javax.persistence.*;
 
 
 @Setter
@@ -18,9 +14,19 @@ import javax.persistence.Table;
 @ToString
 @Entity
 @Table(name = "tbl_menu")
+@SequenceGenerator(
+        name = "seq_menu_code_generator",
+        sequenceName = "seq_menu_code",
+        allocationSize = 1
+
+)
 public class Menu {
 
     @Id
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "seq_menu_code_generator"
+    )
     private int menuCode;
     private String menuName;
     private int menuPrice;
